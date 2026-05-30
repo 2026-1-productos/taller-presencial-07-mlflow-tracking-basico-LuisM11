@@ -2,6 +2,9 @@
 
 models/
 mlruns/
+mlflow.db
+mlflow.db-*
+mlartifacts/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

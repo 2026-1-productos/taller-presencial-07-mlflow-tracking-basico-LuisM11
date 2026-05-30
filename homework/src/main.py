@@ -1,4 +1,5 @@
 ## Se importa MLflow y uuid
+import os
 import uuid
 
 import mlflow
@@ -25,6 +26,11 @@ def main():
         TEST_SIZE,
         RANDOM_STATE,
     )
+
+    ## Se fija explicitamente el tracking URI a la carpeta local mlruns/
+    ## para no depender del default del entorno (que puede apuntar a otra
+    ## ubicacion, p. ej. sqlite) y garantizar que mlruns/ siempre se cree.
+    mlflow.set_tracking_uri(f"file:{os.path.abspath('mlruns')}")
 
     ## Se inicia un experimento en MLflow
     mlflow.set_experiment("wine_quality_experiment")
